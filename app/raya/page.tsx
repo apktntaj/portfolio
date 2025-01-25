@@ -1,14 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Activities } from "../lib/definitions";
+import { Activities } from "../_lib/definitions";
 
 export default function Raya() {
   const [time, setTime] = useState(new Date());
   const [activities, setActivities] = useState(() => {
-    // Retrieve activities from local storage if available
-    const savedActivities: string | null = localStorage.getItem("activities");
-    return savedActivities ? JSON.parse(savedActivities) : [];
+    // Check if local storage is available
+    if (typeof localStorage === "undefined") {
+      return [];
+    } else {
+      // Check if activities are available in local storage
+      const savedActivities: string | null = localStorage.getItem("activities");
+      return savedActivities ? JSON.parse(savedActivities) : [];
+    }
   });
 
   useEffect(() => {
