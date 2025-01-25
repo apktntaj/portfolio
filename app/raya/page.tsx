@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Activities } from "../_lib/definitions";
+import { Activities } from "../lib/definitions";
 
 export default function Raya() {
   const [time, setTime] = useState(new Date());
   const [activities, setActivities] = useState(() => {
     // Check if local storage is available
     if (typeof localStorage === "undefined") {
-      return [];
+      return [{ time: "-", activity: "Local Storage is not available" }];
     } else {
       // Check if activities are available in local storage
       const savedActivities: string | null = localStorage.getItem("activities");
