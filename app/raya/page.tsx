@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Activities } from "../lib/definitions";
 
 export default function Raya() {
   const [time, setTime] = useState(new Date());
@@ -88,7 +89,7 @@ export default function Raya() {
             {activities
               .slice()
               .reverse()
-              .map((activity: any, index: number) => (
+              .map((activity: Activities, index: number) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{activity.time}</td>
