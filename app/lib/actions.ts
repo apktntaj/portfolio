@@ -3,7 +3,6 @@
 import { $Enums } from "@prisma/client";
 import prisma from "./prisma";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 export async function createActivity(formData: FormData) {
   const rawData = {

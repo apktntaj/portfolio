@@ -13,9 +13,9 @@ export default function Card({ activity }: { activity: Activity }) {
       .replace(/\./g, ":");
   };
 
-  let theme = "primary";
+  let theme = "netral";
   switch (activity.category) {
-    case "BANGUN_TIDUR": {
+    case "BANGUN": {
       theme = "secondary";
       break;
     }
@@ -32,14 +32,14 @@ export default function Card({ activity }: { activity: Activity }) {
       break;
     }
     default: {
-      theme = "netral";
+      theme = "primary";
       break;
     }
   }
 
   return (
     <div>
-      <div className='badge badge-accent'>{formatTime(activity.time)}</div>
+      <div className={`badge badge-${theme}`}>{formatTime(activity.time)}</div>
       <p>{activity.category.replace(/_/g, " ")}</p>
     </div>
   );

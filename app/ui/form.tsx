@@ -1,11 +1,5 @@
 "use client";
 
-import {
-  usePathname,
-  useSearchParams,
-  useRouter,
-  redirect,
-} from "next/navigation";
 import { createActivity } from "../lib/actions";
 import { useState } from "react";
 
