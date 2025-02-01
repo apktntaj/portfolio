@@ -2,9 +2,10 @@ import Time from "../ui/time";
 import Form from "../ui/form";
 import { fetchActivities } from "../lib/data";
 import Card from "../ui/card";
+import { Activity } from "@prisma/client";
 
 export default async function Raya() {
-  const activites = await fetchActivities();
+  const activites: Activity[] = await fetchActivities();
 
   return (
     <main className='container mx-auto h-screen'>

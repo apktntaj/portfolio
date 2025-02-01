@@ -1,17 +1,12 @@
-import { $Enums } from "@prisma/client";
+import { Activity } from "@prisma/client";
 import prisma from "./prisma";
 
-export async function fetchActivities() {
-  const response = await prisma.activity.findMany();
-  return response;
-}
-
-export async function createActivity(category: string) {
-  const response = await prisma.activity.create({
-    data: {
-      time: new Date(), // or provide a specific date string
-      category: category as $Enums.RCategory,
-    },
-  });
-  return response;
+export async function fetchActivities(): Promise<Activity[]> {
+  try {
+    const response: Activity[] = await prisma.activity.findMany();
+    return response;
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
 }
