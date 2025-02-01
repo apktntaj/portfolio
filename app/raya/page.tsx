@@ -3,7 +3,6 @@ import Form from "../ui/form";
 import { fetchActivities } from "../lib/data";
 import Card from "../ui/card";
 import { Activity } from "@prisma/client";
-import { createActivity } from "../lib/actions";
 import prisma from "../lib/prisma";
 
 export default async function Raya() {
